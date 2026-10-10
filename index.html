@@ -1,34 +1,240 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini Shop Simulator</title>
+    <meta name="theme-color" content="#f5efe3">
+    <title>LittleMart | Mini Shop Simulator</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+<div class="app">
 
-    <div class="game">
-        <h1>🏪 Mini Shop Simulator</h1>
-
-        <div class="stats">
-            <div>💰 Money: ₹<span id="money">1000</span></div>
-            <div>📦 Stock: <span id="stock">10</span></div>
-            <div>👥 Customers: <span id="customers">0</span></div>
+    <header class="topbar">
+        <a class="brand" href="#" aria-label="LittleMart home">
+            <span class="brand-icon">🏪</span>
+            <span>Little<span class="brand-accent">Mart</span>
+                <small>YOUR LITTLE BUSINESS</small>
+            </span>
+        </a>
+        <div class="top-actions">
+            <span class="status"><span class="live-dot"></span> STORE OPEN</span>
+            <button class="secondary-btn" id="saveBtn">💾 Save</button>
+            <button class="secondary-btn" id="resetBtn">↻ Reset</button>
         </div>
+    </header>
 
-        <div class="shop">
-            <h2>My Shop</h2>
-            <p>Sell products to customers and earn money!</p>
+    <main>
+        <section class="welcome">
+            <div>
+                <p class="eyebrow" id="dateLabel">YOUR BUSINESS JOURNEY</p>
+                <h1>Every big business<br>starts <span>somewhere.</span></h1>
+                <p class="subtitle">Welcome to your neighbourhood shop. Make today count.</p>
+            </div>
+            <div class="day-card">
+                <span>☀️</span>
+                <div><small>BUSINESS DAY</small><strong id="day">1</strong></div>
+            </div>
+        </section>
 
-            <button onclick="buyStock()">📦 Buy Stock - ₹100</button>
-            <button onclick="serveCustomer()">🛒 Serve Customer</button>
-        </div>
+        <section class="stats-grid" aria-label="Business statistics">
+            <article class="stat-card">
+                <span class="stat-icon money-icon">₹</span>
+                <div><p>Cash balance</p><h2 id="money">₹1,000</h2><small>Money in your till</small></div>
+            </article>
+            <article class="stat-card">
+                <span class="stat-icon stock-icon">📦</span>
+                <div><p>Total inventory</p><h2 id="totalStock">20</h2><small>Items in your shop</small></div>
+            </article>
+            <article class="stat-card">
+                <span class="stat-icon customer-icon">🛍️</span>
+                <div><p>Customers served</p><h2 id="customers">0</h2><small>Lifetime customers</small></div>
+            </article>
+            <article class="stat-card">
+                <span class="stat-icon rep-icon">⭐</span>
+                <div><p>Reputation</p><h2 id="reputation">50/100</h2><small id="repLabel">Growing business</small></div>
+            </article>
+        </section>
 
-        <div id="message">Welcome to your shop!</div>
-    </div>
+        <!-- VISUAL SHOP FLOOR -->
+        <section class="panel floor-panel">
+            <div class="panel-heading">
+                <div>
+                    <p class="eyebrow">YOUR STORE · YOUR RULES</p>
+                    <h2>Inside LittleMart</h2>
+                </div>
+                <span class="pill">🏠 Shop floor</span>
+            </div>
 
-    <script src="script.js"></script>
+            <div class="shop-scene">
+                <div class="scene-window">
+                    <span>☀️</span>
+                    <div class="window-view">
+                        <span class="cloud cloud-one"></span>
+                        <span class="cloud cloud-two"></span>
+                        <span class="sun"></span>
+                        <span class="distant-hill hill-one"></span>
+                        <span class="distant-hill hill-two"></span>
+                    </div>
+                    <small>OPEN DAILY</small>
+                </div>
+
+                <div class="scene-sign">
+                    <span>✦</span> LITTLE MART <span>✦</span>
+                    <small>FRESH FINDS · FRIENDLY PRICES</small>
+                </div>
+
+                <div class="scene-shelves">
+                    <div class="shelf-unit">
+                        <div class="shelf-heading"><span>01</span> SNACKS</div>
+                        <div class="shelf-items">
+                            <span>🍟</span><span>🍪</span><span>🍫</span><span>🥨</span>
+                        </div>
+                        <div class="shelf-board"></div>
+                        <div class="shelf-items">
+                            <span>🍿</span><span>🍬</span><span>🍭</span><span>🍩</span>
+                        </div>
+                        <div class="shelf-board"></div>
+                    </div>
+
+                    <div class="shelf-unit">
+                        <div class="shelf-heading"><span>02</span> DRINKS</div>
+                        <div class="shelf-items">
+                            <span>🥤</span><span>🧃</span><span>🧋</span><span>🧃</span>
+                        </div>
+                        <div class="shelf-board"></div>
+                        <div class="shelf-items">
+                            <span>🥛</span><span>🧴</span><span>🥤</span><span>🍼</span>
+                        </div>
+                        <div class="shelf-board"></div>
+                    </div>
+
+                    <div class="shelf-unit">
+                        <div class="shelf-heading"><span>03</span> DAILY NEEDS</div>
+                        <div class="shelf-items">
+                            <span>🍞</span><span>🥚</span><span>🧈</span><span>🧀</span>
+                        </div>
+                        <div class="shelf-board"></div>
+                        <div class="shelf-items">
+                            <span>🧼</span><span>🪥</span><span>🧻</span><span>🧽</span>
+                        </div>
+                        <div class="shelf-board"></div>
+                    </div>
+                </div>
+
+                <div class="floor-details">
+                    <div class="floor-plant">
+                        <span>🌿</span>
+                        <div class="plant-pot"></div>
+                    </div>
+
+                    <div class="checkout">
+                        <div class="checkout-label">CHECKOUT</div>
+                        <div class="checkout-top">
+                            <span class="register-screen">₹</span>
+                            <span class="register-buttons">▪ ▪<br>▪ ▪</span>
+                        </div>
+                        <div class="checkout-front">
+                            <span>THANK YOU!</span>
+                        </div>
+                    </div>
+
+                    <div class="welcome-mat">
+                        <span>WELCOME</span>
+                        <small>COME AGAIN ♡</small>
+                    </div>
+                </div>
+
+                <div class="scene-footer">
+                    <span>✦ A little shop with big dreams</span>
+                    <span><span class="live-dot"></span> Ready for customers</span>
+                </div>
+            </div>
+            <p class="scene-note">A preview of your shop interior. The inventory and checkout controls below handle the actual game mechanics.</p>
+        </section>
+
+        <section class="main-grid">
+            <div class="panel inventory-panel">
+                <div class="panel-heading">
+                    <div><p class="eyebrow">MANAGE YOUR SHELVES</p><h2>Product inventory</h2></div>
+                    <span class="pill" id="productCount">4 products</span>
+                </div>
+                <div id="products" class="products"></div>
+            </div>
+
+            <aside class="side-column">
+                <section class="panel customer-panel">
+                    <p class="eyebrow">THE NEXT SALE</p>
+                    <div class="customer-emoji" id="customerEmoji">🧑‍💼</div>
+                    <h2 id="customerTitle">Ready for business?</h2>
+                    <p id="customerText">A customer could walk in at any moment.</p>
+                    <div class="customer-request" id="customerRequest">
+                        Welcome your next customer!
+                    </div>
+                    <button class="primary-btn" id="customerBtn">🛎️ Welcome Customer</button>
+                    <button class="secondary-btn full-btn" id="skipBtn">Let them browse</button>
+                </section>
+
+                <section class="panel upgrade-panel">
+                    <div class="panel-heading">
+                        <div><p class="eyebrow">INVEST IN GROWTH</p><h2>Shop upgrades</h2></div>
+                        <span>🚀</span>
+                    </div>
+
+                    <div class="upgrade-row">
+                        <span class="upgrade-emoji">🪴</span>
+                        <div class="upgrade-info"><strong>Shop Decor</strong><small>Improve reputation</small><small id="decorLevel">Level 0</small></div>
+                        <button class="upgrade-btn" id="decorBtn">₹300</button>
+                    </div>
+                    <div class="upgrade-row">
+                        <span class="upgrade-emoji">🛒</span>
+                        <div class="upgrade-info"><strong>Better Shelves</strong><small>Increase stock capacity</small><small id="shelfLevel">Level 0</small></div>
+                        <button class="upgrade-btn" id="shelfBtn">₹400</button>
+                    </div>
+                    <div class="upgrade-row">
+                        <span class="upgrade-emoji">📣</span>
+                        <div class="upgrade-info"><strong>Local Marketing</strong><small>Attract more customers</small><small id="marketingLevel">Level 0</small></div>
+                        <button class="upgrade-btn" id="marketingBtn">₹500</button>
+                    </div>
+                </section>
+            </aside>
+        </section>
+
+        <section class="bottom-grid">
+            <section class="panel">
+                <div class="panel-heading">
+                    <div><p class="eyebrow">YOUR PERFORMANCE</p><h2>Business overview</h2></div>
+                    <span>📈</span>
+                </div>
+                <div class="overview-grid">
+                    <div class="overview-item"><small>Today's revenue</small><strong id="revenue">₹0</strong></div>
+                    <div class="overview-item"><small>Today's expenses</small><strong id="expenses">₹0</strong></div>
+                    <div class="overview-item"><small>Today's profit</small><strong id="profit">₹0</strong></div>
+                    <div class="overview-item"><small>Lifetime sales</small><strong id="lifetimeSales">₹0</strong></div>
+                </div>
+                <button class="primary-btn full-btn day-btn" id="nextDayBtn">🌅 Close Day & Start Next</button>
+            </section>
+
+            <section class="panel activity-panel">
+                <div class="panel-heading">
+                    <div><p class="eyebrow">FRESH OFF THE COUNTER</p><h2>Activity log</h2></div>
+                    <button class="text-btn" id="clearLogBtn">Clear</button>
+                </div>
+                <div id="activityLog" class="activity-log">
+                    <p class="empty-log">Your business story starts here.</p>
+                </div>
+            </section>
+        </section>
+
+        <footer>
+            <span>🏪 LittleMart Simulator</span>
+            <span>Small shop. Big dreams.</span>
+        </footer>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
